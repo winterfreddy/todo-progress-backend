@@ -3,6 +3,10 @@ const Schema = mongoose.Schema;
 
 const TodoSchema = new Schema(
     {
+        userId: {
+            type: Schema.Types.ObjectId,
+            ref: 'User'
+        },
         task: {
             type: String,
             required: true
@@ -11,7 +15,8 @@ const TodoSchema = new Schema(
             type: Boolean
         },
         dateAdded: {
-            type: Date
+            type: Date,
+            default: Date.now
         }
     },
     {
